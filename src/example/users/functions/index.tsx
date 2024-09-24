@@ -5,7 +5,6 @@ import { columnT, HeadingT, TableDataT } from "andrea-table";
 
 
 
-
 const Address: React.FC<{
   columnData: any;
   crud: TableDataT["crud"];
@@ -34,7 +33,11 @@ const ActionHeader: React.FC<{
   crud: TableDataT["crud"];
   onDeleteSuccess?: () => void;
 }> = ({ columnData, onDeleteSuccess }) => {
-  console.log({columnData, onDeleteSuccess})
+  
+
+    
+    console.log({columnData, onDeleteSuccess})
+  
 
 
  
@@ -42,6 +45,7 @@ const ActionHeader: React.FC<{
   const handleClick = () => {};
   const handleDelete = async (id: string) => {
     console.log(id)
+   
  
   };
 
@@ -82,7 +86,7 @@ const ActionHeader: React.FC<{
     </div>
   );
 };
-async function fetchData({baseUrl, url}:{url: string, baseUrl: string}) {
+async function fetchData ({ baseUrl, url}:{url: string, baseUrl: string}) {
 
 
   try {
@@ -110,7 +114,7 @@ const header: HeadingT[] = [
     key: "id",
     name: "id",
     canSort: true,
-    isHeader: true,
+   isHeader: true,
     canFilter: false,
     canCopy: true,
   },
@@ -118,19 +122,21 @@ const header: HeadingT[] = [
     key: "firstName",
     name: "first name",
     canSort: true,
-    isHeader: true,
+   isHeader: true,
     canFilter: false,
-  },  {
+  },
+  {
     key: "lastName",
     name: "last name",
     canSort: true,
-    isHeader: true,
+   isHeader: true,
     canFilter: false,
-  },  {
+  },
+  {
     key: "email",
     name: "email",
     canSort: true,
-    isHeader: true,
+   isHeader: true,
     canCopy: true,
     canFilter: false,
 
@@ -139,7 +145,7 @@ const header: HeadingT[] = [
     key: "gender",
     name: "gender",
     canSort: true,
-    isHeader: true,
+   isHeader: true,
     canCopy: true,
     canFilter: true,
     filters:['male', 'female']
@@ -150,17 +156,26 @@ const header: HeadingT[] = [
     name: "address",
     canFilter: true,
     canSort: true,
-    isHeader: true,
- isSearchFilter: true,
-},
+   isHeader: true,
 
-   {
+    isSearchFilter: true,
+  },
+
+  {
+    key: "calendarFilter",
+    name: "calendar",
+    canSort: false,
+   isHeader: false,
+    canFilter: true,
+  },
+  {
     key: "action",
     name: "action",
     canSort: false,
-    isHeader: true,
+   isHeader: true,
     canFilter: false,
-  },];
+  },
+];
 
 export const userTableData: TableDataT = {
   baseUrl: "https://dummyjson.com",
@@ -170,10 +185,10 @@ export const userTableData: TableDataT = {
   crud: {},
   heading: header,
   column: extraColumn,
-  query: { pageName: "skip" },
-  show: { seeMore: true, tableName: true, customButton: true },
-  refresh: { intervalInSec: 100, status: false },
+  query: {pageName:"skip"},
+  show: { seeMore: true, tableName:true, customButton:true },
+  refresh: { intervalInSec: 120, status: true },
   subUrl: "/users",
   tableName: "user",
-  color: { primary: "hsl(300,100%,50%)", secondary: "hsl(320, 100%,20%)", tertiary: "hsl(320, 100%,90%)" },
+  color: { primary: "hsl(200, 90%,50%)", secondary: "hsl(200,60%,80%)", tertiary: "hsl(200,90%,40%)",background:"hsl(300,70%,96%)", cellBackground:"hsl(300,10%,80%)", filterBackground:"hsl(300,10%,80%)", exportBackground:"hsl(300,10%,80%)" },
 };
